@@ -8,7 +8,7 @@ class GeneratePage extends StatefulWidget {
 }
 
 class _GeneratePageState extends State<GeneratePage> {
-  String value = 'www.binus.ac.id';
+  String value = 'https://www.qrcode.com/en/history/';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
