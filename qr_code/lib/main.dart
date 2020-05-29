@@ -14,7 +14,7 @@ class MyQRApp extends StatelessWidget {
       theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
+        HomePage.id: (context) => HomePage(),
         ScanPage.id: (context) => ScanPage(),
         GeneratePage.id: (context) => GeneratePage(),
       },
