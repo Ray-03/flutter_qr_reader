@@ -7,6 +7,7 @@ import 'package:flushbar/flushbar.dart';
 import 'dart:async';
 
 class ScanPage extends StatefulWidget {
+  static String id = 'scan';
   @override
   _ScanPageState createState() => _ScanPageState();
 }

@@ -15,7 +15,7 @@ class MyQRApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
-        '/scan': (context) => ScanPage(),
+        ScanPage.id: (context) => ScanPage(),
         GeneratePage.id: (context) => GeneratePage(),
       },
     );
