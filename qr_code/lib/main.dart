@@ -12,7 +12,7 @@ class MyQRApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
-      initialRoute: '/',
+      initialRoute: HomePage.id,
       routes: {
         HomePage.id: (context) => HomePage(),
         ScanPage.id: (context) => ScanPage(),
