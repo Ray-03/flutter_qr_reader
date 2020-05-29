@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qrcode/generate_page.dart';
+import 'package:qrcode/scanner_page.dart';
 
 class HomePage extends StatelessWidget {
   static String id = 'homePage';
@@ -16,12 +18,12 @@ class HomePage extends StatelessWidget {
           children: [
             IconTitleButton(
               logo: Icons.camera_enhance,
-              nav: '/scan',
+              nav: ScanPage.id,
               title: 'Scan QR',
             ),
             IconTitleButton(
               logo: Icons.create,
-              nav: '/generate',
+              nav: GeneratePage.id,
               title: 'Generate QR',
             ),
           ],

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "710369583592",
+    "firebase_url": "https://qr-profiler.firebaseio.com",
+    "project_id": "qr-profiler",
+    "storage_bucket": "qr-profiler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710369583592:android:b020bbf833d4fb0e73c45d",
+        "android_client_info": {
+          "package_name": "com.qrProfiler.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710369583592-adcdh55u9fkbdoghjh8qspquc7oicmks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDktfFwI5PhAnkHzdCDi6jJJcNk2j2MKMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710369583592-adcdh55u9fkbdoghjh8qspquc7oicmks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
