@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:qrcode/constants.dart';
 import 'package:qrcode/logo_text.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -9,6 +11,7 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
+  String email, password;
   bool loading = false;
   @override
   Widget build(BuildContext context) {
@@ -23,6 +26,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Logo(),
+                SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  textAlign: TextAlign.center,
+                  onChanged: (newValue) {
+                    email = newValue;
+                  },
+                  decoration: kTextFieldDecor,
+                ),
               ],
             ),
           ),
