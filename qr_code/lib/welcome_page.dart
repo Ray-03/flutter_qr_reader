@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:qrcode/home_page.dart';
+import 'package:qrcode/registration_page.dart';
 import 'text_color_navigation_button.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -41,7 +42,9 @@ class _WelcomePageState extends State<WelcomePage> {
             TextColorNavigationButton(
               title: 'Register',
               color: Colors.green,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, RegistrationPage.id);
+              },
             ),
             SizedBox(
               height: 100,
