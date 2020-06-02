@@ -16,7 +16,7 @@ class _WelcomePageState extends State<WelcomePage> {
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             TypewriterAnimatedTextKit(
               text: ['QR_Profiler'],
@@ -28,12 +28,23 @@ class _WelcomePageState extends State<WelcomePage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(
+              height: 200,
+            ),
             TextColorNavigationButton(
               title: 'Login',
               color: Colors.teal,
               onPressed: () {
-                Navigator.pushNamed(context, HomePage.id);
+//                Navigator.pushNamed(context, HomePage.id);
               },
+            ),
+            TextColorNavigationButton(
+              title: 'Register',
+              color: Colors.green,
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: 100,
             ),
           ],
         ),
