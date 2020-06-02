@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qrcode/generate_page.dart';
 import 'package:qrcode/home_page.dart';
+import 'package:qrcode/registration_page.dart';
 import 'package:qrcode/scanner_page.dart';
 import 'package:qrcode/welcome_page.dart';
 
@@ -16,6 +17,7 @@ class MyQRApp extends StatelessWidget {
       initialRoute: WelcomePage.id,
       routes: {
         WelcomePage.id: (context) => WelcomePage(),
+        RegistrationPage.id: (context) => RegistrationPage(),
         HomePage.id: (context) => HomePage(),
         ScanPage.id: (context) => ScanPage(),
         GeneratePage.id: (context) => GeneratePage(),
