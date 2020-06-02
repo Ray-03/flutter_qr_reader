@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:qrcode/home_page.dart';
+import 'package:qrcode/logo_text.dart';
 import 'package:qrcode/registration_page.dart';
 import 'text_color_navigation_button.dart';
 
@@ -19,16 +20,7 @@ class _WelcomePageState extends State<WelcomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            TypewriterAnimatedTextKit(
-              text: ['QR_Profiler'],
-              speed: Duration(milliseconds: 300),
-              textAlign: TextAlign.center,
-              textStyle: TextStyle(
-                color: Colors.tealAccent,
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Logo(),
             SizedBox(
               height: 200,
             ),
