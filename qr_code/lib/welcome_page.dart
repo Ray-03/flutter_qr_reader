@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -13,7 +14,10 @@ class _WelcomePageState extends State<WelcomePage> {
       child: Scaffold(
         body: Column(
           children: [
-            Text('QR_Profiler'),
+            TypewriterAnimatedTextKit(
+              text: ['QR_Profiler'],
+              speed: Duration(milliseconds: 300),
+            ),
           ],
         ),
       ),
