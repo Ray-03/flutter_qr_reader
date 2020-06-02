@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
@@ -15,6 +16,7 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   String email, password;
   bool loading = false;
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,8 +58,21 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 TextColorNavigationButton(
                   title: 'Register Now!',
                   color: Colors.green,
-                  onPressed: () {
-                    Navigator.pushNamed(context, HomePage.id);
+                  onPressed: () async {
+                    setState(() {
+                      loading = true;
+                    });
+                    try {
+                      final user = await _auth.createUserWithEmailAndPassword(
+                          email: email, password: password);
+                      if (user != null)
+                        Navigator.pushNamed(context, HomePage.id);
+                    } catch (e) {
+                      print(e);
+                    }
+                    setState(() {
+                      loading = false;
+                    });
                   },
                 )
               ],
