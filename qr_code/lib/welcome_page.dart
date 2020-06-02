@@ -10,7 +10,13 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(),
+      child: Scaffold(
+        body: Column(
+          children: [
+            Text('QR_Profiler'),
+          ],
+        ),
+      ),
     );
   }
 }
