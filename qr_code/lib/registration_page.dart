@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:qrcode/constants.dart';
+import 'package:qrcode/home_page.dart';
 import 'package:qrcode/logo_text.dart';
+import 'package:qrcode/text_color_navigation_button.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';
@@ -27,7 +29,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               children: [
                 Logo(),
                 SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 TextField(
                   keyboardType: TextInputType.emailAddress,
@@ -35,8 +37,29 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   onChanged: (newValue) {
                     email = newValue;
                   },
-                  decoration: kTextFieldDecor,
+                  decoration: kTextFieldDecor.copyWith(
+                      hintText: 'Enter valid email address'),
                 ),
+                SizedBox(height: 30),
+                TextField(
+                  obscureText: true,
+                  textAlign: TextAlign.center,
+                  onChanged: (newValue) {
+                    password = newValue;
+                  },
+                  decoration:
+                      kTextFieldDecor.copyWith(hintText: 'Enter password'),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                TextColorNavigationButton(
+                  title: 'Register Now!',
+                  color: Colors.green,
+                  onPressed: () {
+                    Navigator.pushNamed(context, HomePage.id);
+                  },
+                )
               ],
             ),
           ),
