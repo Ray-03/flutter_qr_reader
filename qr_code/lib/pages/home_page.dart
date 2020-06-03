@@ -16,15 +16,32 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Container(
-                child: Icon(
-                  Icons.exit_to_app,
-                  color: Colors.greenAccent.shade200,
-                  size: 50,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: GestureDetector(
+//                    onTap: () => ,
+                    child: Icon(
+                      Icons.create,
+                      color: Colors.greenAccent.shade200,
+                      size: 50,
+                    ),
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: Icon(
+                      Icons.exit_to_app,
+                      color: Colors.greenAccent.shade200,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -35,14 +52,16 @@ class HomePage extends StatelessWidget {
                   title: 'Scan QR',
                 ),
                 IconTitleButton(
-                  logo: Icons.create,
+                  logo: Icons.account_circle,
                   nav: GeneratePage.id,
-                  title: 'Generate QR',
+                  title: 'Show Profile',
                 ),
               ],
             ),
-            SizedBox(
-              height: 150,
+            Container(
+              constraints: BoxConstraints.tight(
+                Size(50, 50),
+              ),
             )
           ],
         ),
