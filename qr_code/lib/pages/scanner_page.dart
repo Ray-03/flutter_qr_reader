@@ -1,12 +1,10 @@
 import 'dart:ui';
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flushbar/flushbar.dart';
-import 'dart:async';
-
-import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/widgets/notification_flush_bar.dart';
+import 'package:barcode_scan/barcode_scan.dart';
+import 'package:qrcode/widgets/notification_flush_bar.dart';
 
 class ScanPage extends StatefulWidget {
   static String id = 'scan';

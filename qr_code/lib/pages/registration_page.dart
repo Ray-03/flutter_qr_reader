@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:qrcode/constants.dart';
-import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/home_page.dart';
-import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/widgets/logo_text.dart';
-import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/widgets/text_color_navigation_button.dart';
-import '../widgets/notification_flush_bar.dart';
+import 'package:qrcode/pages/home_page.dart';
+import 'package:qrcode/widgets/logo_text.dart';
+import 'package:qrcode/widgets/text_color_navigation_button.dart';
+import 'package:qrcode/widgets/notification_flush_bar.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';
