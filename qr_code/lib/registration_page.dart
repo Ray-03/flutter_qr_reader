@@ -70,26 +70,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         Navigator.pushNamed(context, HomePage.id);
                     } catch (e) {
                       print(e);
-                      Flushbar(
-                        duration: Duration(seconds: 2),
-                        padding: EdgeInsets.all(10),
-                        borderRadius: 10,
-                        backgroundGradient: LinearGradient(
-                          colors: [Colors.red.shade500, Colors.red],
-                          stops: [0.7, 1],
-                        ),
-                        boxShadows: [
-                          BoxShadow(
-                            color: Colors.black45,
-                            offset: Offset(3, 3),
-                            blurRadius: 3,
-                          ),
-                        ],
-                        dismissDirection: FlushbarDismissDirection.HORIZONTAL,
-                        forwardAnimationCurve: Curves.fastLinearToSlowEaseIn,
-                        title: 'Failed!',
-                        message: 'Error',
-                      )..show(context);
+                      NotificationFlushBar().build(context);
                     }
                     setState(() {
                       loading = false;
@@ -102,5 +83,31 @@ class _RegistrationPageState extends State<RegistrationPage> {
         ),
       ),
     );
+  }
+}
+
+class NotificationFlushBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Flushbar(
+      duration: Duration(seconds: 2),
+      padding: EdgeInsets.all(10),
+      borderRadius: 10,
+      backgroundGradient: LinearGradient(
+        colors: [Colors.red.shade500, Colors.red],
+        stops: [0.7, 1],
+      ),
+      boxShadows: [
+        BoxShadow(
+          color: Colors.black45,
+          offset: Offset(3, 3),
+          blurRadius: 3,
+        ),
+      ],
+      dismissDirection: FlushbarDismissDirection.HORIZONTAL,
+      forwardAnimationCurve: Curves.fastLinearToSlowEaseIn,
+      title: 'Failed!',
+      message: 'Error',
+    )..show(context);
   }
 }
