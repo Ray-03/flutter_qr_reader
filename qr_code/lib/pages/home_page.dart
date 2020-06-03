@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qrcode/pages/generate_page.dart';
+import 'package:qrcode/pages/profile_page.dart';
 import 'package:qrcode/pages/scanner_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(20.0),
                   child: GestureDetector(
-//                    onTap: () => ,
+                    onTap: () => ProfilePage.id,
                     child: Icon(
                       Icons.create,
                       color: Colors.greenAccent.shade200,

@@ -9,6 +9,13 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        body: AppBar(
+          title: Text('Edit Profile'),
+          centerTitle: true,
+        ),
+      ),
+    );
   }
 }
