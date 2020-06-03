@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:qrcode/generate_page.dart';
-import 'package:qrcode/home_page.dart';
-import 'package:qrcode/registration_page.dart';
-import 'package:qrcode/scanner_page.dart';
-import 'package:qrcode/welcome_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/generate_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/home_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/registration_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/scanner_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/welcome_page.dart';
 
 void main() => runApp(MyQRApp());
 

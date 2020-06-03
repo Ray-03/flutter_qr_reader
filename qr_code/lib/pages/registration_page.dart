@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:qrcode/constants.dart';
-import 'package:qrcode/home_page.dart';
-import 'package:qrcode/logo_text.dart';
-import 'package:qrcode/text_color_navigation_button.dart';
-import 'notification_flush_bar.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/home_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/widgets/logo_text.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/widgets/text_color_navigation_button.dart';
+import '../widgets/notification_flush_bar.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';

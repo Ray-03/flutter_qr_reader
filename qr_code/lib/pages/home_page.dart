@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qrcode/generate_page.dart';
-import 'package:qrcode/scanner_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/generate_page.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/pages/scanner_page.dart';
 
 class HomePage extends StatelessWidget {
   static String id = 'homePage';

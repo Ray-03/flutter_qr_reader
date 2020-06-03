@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flushbar/flushbar.dart';
 import 'dart:async';
 
-import 'package:qrcode/notification_flush_bar.dart';
+import 'file:///C:/allData/flutter_proj/campus/QRCode/qr_code/lib/widgets/notification_flush_bar.dart';
 
 class ScanPage extends StatefulWidget {
   static String id = 'scan';
