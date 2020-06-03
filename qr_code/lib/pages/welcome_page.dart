@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qrcode/pages/login_page.dart';
 import 'package:qrcode/widgets/logo_text.dart';
 import 'package:qrcode/pages/registration_page.dart';
 import 'package:qrcode/widgets/text_color_navigation_button.dart';
@@ -26,7 +27,7 @@ class _WelcomePageState extends State<WelcomePage> {
               title: 'Login',
               color: Colors.teal,
               onPressed: () {
-//                Navigator.pushNamed(context, HomePage.id);
+                Navigator.pushNamed(context, LoginPage.id);
               },
             ),
             TextColorNavigationButton(

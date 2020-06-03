@@ -15,7 +15,8 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
-  String email, password;
+  String email = '';
+  String password = '';
   bool loading = false;
   final _auth = FirebaseAuth.instance;
   @override
@@ -64,18 +65,32 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       loading = true;
                     });
                     try {
-                      final user = await _auth
-                          .createUserWithEmailAndPassword(
-                              email: email, password: password)
-                          .catchError((onError) => NotificationFlushBar(
-                                title: 'Failed to register',
-                                message: onError.message,
-                                error: true,
-                              ).build(context));
+                      final user = await _auth.createUserWithEmailAndPassword(
+                          email: email, password: password);
                       if (user != null)
                         Navigator.pushNamed(context, HomePage.id);
                     } catch (e) {
-                      print(e);
+                      print(e.code);
+                      String message;
+                      switch (e.code) {
+                        case 'ERROR_INVALID_EMAIL':
+                          message = 'Please input valid email format';
+                          break;
+                        case 'ERROR_EMAIL_ALREADY_IN_USE':
+                          message = 'This mail is already used';
+                          break;
+                        case 'ERROR_WEAK_PASSWORD':
+                          message = 'Password al least contain 6 characters';
+                          break;
+                        case 'error':
+                          message = 'You must fill email and password';
+                          break;
+                      }
+                      NotificationFlushBar(
+                        title: 'Oops!',
+                        message: message,
+                        error: true,
+                      ).build(context);
                     }
                     setState(() {
                       loading = false;

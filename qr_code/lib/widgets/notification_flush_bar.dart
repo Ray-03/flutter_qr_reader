@@ -3,9 +3,6 @@ import 'package:flushbar/flushbar.dart';
 
 class NotificationFlushBar extends StatelessWidget {
   NotificationFlushBar({this.title, this.message, this.error});
-//  final Color color1;
-//  final Color color2;
-
   final String title;
   final String message;
   final bool error;
