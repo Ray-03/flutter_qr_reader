@@ -63,18 +63,33 @@ class _LoginPageState extends State<LoginPage> {
                       loading = true;
                     });
                     try {
-                      final user = await _auth
-                          .signInWithEmailAndPassword(
-                              email: email, password: password)
-                          .catchError((onError) => NotificationFlushBar(
-                                title: 'Failed to login',
-                                message: onError.message,
-                                error: true,
-                              ).build(context));
+                      final user = await _auth.signInWithEmailAndPassword(
+                          email: email, password: password);
                       if (user != null)
                         Navigator.pushNamed(context, HomePage.id);
                     } catch (e) {
-                      print(e);
+                      print(e.code);
+                      String message;
+                      switch (e.code) {
+                        case 'ERROR_NETWORK_REQUEST_FAILED':
+                          message = 'Please check your internet connection';
+                          break;
+                        case 'ERROR_INVALID_EMAIL':
+                          message = 'Please input valid email format';
+                          break;
+                        case 'ERROR_WRONG_PASSWORD':
+                        case 'ERROR_USER_NOT_FOUND':
+                          message = 'Email or password is incorrect';
+                          break;
+                        case 'error':
+                          message = 'You must fill email and password';
+                          break;
+                      }
+                      NotificationFlushBar(
+                        title: 'Oops!',
+                        message: message,
+                        error: true,
+                      ).build(context);
                     }
                     setState(() {
                       loading = false;

@@ -73,6 +73,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       print(e.code);
                       String message;
                       switch (e.code) {
+                        case 'ERROR_NETWORK_REQUEST_FAILED':
+                          message = 'Please check your internet connection';
+                          break;
                         case 'ERROR_INVALID_EMAIL':
                           message = 'Please input valid email format';
                           break;
@@ -80,7 +83,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           message = 'This mail is already used';
                           break;
                         case 'ERROR_WEAK_PASSWORD':
-                          message = 'Password al least contain 6 characters';
+                          message = 'Password at least contain 6 characters';
                           break;
                         case 'error':
                           message = 'You must fill email and password';
