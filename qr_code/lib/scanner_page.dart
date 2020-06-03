@@ -6,6 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flushbar/flushbar.dart';
 import 'dart:async';
 
+import 'package:qrcode/notification_flush_bar.dart';
+
 class ScanPage extends StatefulWidget {
   static String id = 'scan';
   @override
@@ -34,26 +36,11 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   void showCopiedFlushbar(BuildContext context) {
-    Flushbar(
-      duration: Duration(seconds: 2),
-      padding: EdgeInsets.all(10),
-      borderRadius: 10,
-      backgroundGradient: LinearGradient(
-        colors: [Colors.green.shade500, Colors.greenAccent],
-        stops: [0.7, 1],
-      ),
-      boxShadows: [
-        BoxShadow(
-          color: Colors.black45,
-          offset: Offset(3, 3),
-          blurRadius: 3,
-        ),
-      ],
-      dismissDirection: FlushbarDismissDirection.HORIZONTAL,
-      forwardAnimationCurve: Curves.fastLinearToSlowEaseIn,
+    NotificationFlushBar(
+      error: false,
       title: 'Success!',
-      message: 'Copied to your clipboard ;)',
-    )..show(context);
+      message: 'Copied to your clipboard',
+    ).build(context);
   }
 
   @override

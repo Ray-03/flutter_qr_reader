@@ -6,7 +6,7 @@ import 'package:qrcode/constants.dart';
 import 'package:qrcode/home_page.dart';
 import 'package:qrcode/logo_text.dart';
 import 'package:qrcode/text_color_navigation_button.dart';
-import 'package:flushbar/flushbar.dart';
+import 'notification_flush_bar.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_page';
@@ -64,13 +64,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       loading = true;
                     });
                     try {
-                      final user = await _auth.createUserWithEmailAndPassword(
-                          email: email, password: password);
+                      final user = await _auth
+                          .createUserWithEmailAndPassword(
+                              email: email, password: password)
+                          .catchError((onError) => NotificationFlushBar(
+                                title: 'Failed to register',
+                                message: onError.message,
+                                error: true,
+                              ).build(context));
                       if (user != null)
                         Navigator.pushNamed(context, HomePage.id);
                     } catch (e) {
                       print(e);
-                      NotificationFlushBar().build(context);
                     }
                     setState(() {
                       loading = false;
@@ -83,31 +88,5 @@ class _RegistrationPageState extends State<RegistrationPage> {
         ),
       ),
     );
-  }
-}
-
-class NotificationFlushBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Flushbar(
-      duration: Duration(seconds: 2),
-      padding: EdgeInsets.all(10),
-      borderRadius: 10,
-      backgroundGradient: LinearGradient(
-        colors: [Colors.red.shade500, Colors.red],
-        stops: [0.7, 1],
-      ),
-      boxShadows: [
-        BoxShadow(
-          color: Colors.black45,
-          offset: Offset(3, 3),
-          blurRadius: 3,
-        ),
-      ],
-      dismissDirection: FlushbarDismissDirection.HORIZONTAL,
-      forwardAnimationCurve: Curves.fastLinearToSlowEaseIn,
-      title: 'Failed!',
-      message: 'Error',
-    )..show(context);
   }
 }
