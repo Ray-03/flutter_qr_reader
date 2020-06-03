@@ -8,24 +8,42 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('My QR Code'),
-          centerTitle: true,
-        ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+//        appBar: AppBar(
+//          title: Text('My QR Code'),
+//          centerTitle: true,
+//        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconTitleButton(
-              logo: Icons.camera_enhance,
-              nav: ScanPage.id,
-              title: 'Scan QR',
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Container(
+                child: Icon(
+                  Icons.exit_to_app,
+                  color: Colors.greenAccent.shade200,
+                  size: 50,
+                ),
+              ),
             ),
-            IconTitleButton(
-              logo: Icons.create,
-              nav: GeneratePage.id,
-              title: 'Generate QR',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconTitleButton(
+                  logo: Icons.camera_enhance,
+                  nav: ScanPage.id,
+                  title: 'Scan QR',
+                ),
+                IconTitleButton(
+                  logo: Icons.create,
+                  nav: GeneratePage.id,
+                  title: 'Generate QR',
+                ),
+              ],
             ),
+            SizedBox(
+              height: 150,
+            )
           ],
         ),
       ),
