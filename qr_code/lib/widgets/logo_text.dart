@@ -10,7 +10,7 @@ class Logo extends StatelessWidget {
       textAlign: TextAlign.center,
       textStyle: TextStyle(
         color: Colors.tealAccent,
-        fontSize: 50,
+        fontSize: 40,
         fontWeight: FontWeight.bold,
       ),
     );

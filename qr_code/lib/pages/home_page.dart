@@ -1,18 +1,28 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:qrcode/pages/generate_page.dart';
 import 'package:qrcode/pages/profile_page.dart';
 import 'package:qrcode/pages/scanner_page.dart';
+import 'package:qrcode/user_model.dart';
 
 class HomePage extends StatelessWidget {
   static String id = 'homePage';
+  final Firestore _firestore = Firestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> _signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-//        appBar: AppBar(
-//          title: Text('My QR Code'),
-//          centerTitle: true,
-//        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,7 +33,7 @@ class HomePage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(20.0),
                   child: GestureDetector(
-                    onTap: () => ProfilePage.id,
+                    onTap: () => Navigator.pushNamed(context, ProfilePage.id),
                     child: Icon(
                       Icons.create,
                       color: Colors.greenAccent.shade200,
@@ -34,7 +44,7 @@ class HomePage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(20.0),
                   child: GestureDetector(
-                    onTap: () => Navigator.pop(context),
+                    onTap: _signOut,
                     child: Icon(
                       Icons.exit_to_app,
                       color: Colors.greenAccent.shade200,

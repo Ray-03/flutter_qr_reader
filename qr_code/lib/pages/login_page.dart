@@ -14,15 +14,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String email, password;
-  bool loading = false;
-  final _auth = FirebaseAuth.instance;
+  String _email = '';
+  String _password = '';
+  bool _loading = false;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: ModalProgressHUD(
-          inAsyncCall: loading,
+          inAsyncCall: _loading,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: Column(
@@ -37,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                   keyboardType: TextInputType.emailAddress,
                   textAlign: TextAlign.center,
                   onChanged: (newValue) {
-                    email = newValue;
+                    _email = newValue;
                   },
                   decoration: kTextFieldDecor.copyWith(
                       hintText: 'Enter valid email address'),
@@ -47,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   textAlign: TextAlign.center,
                   onChanged: (newValue) {
-                    password = newValue;
+                    _password = newValue;
                   },
                   decoration:
                       kTextFieldDecor.copyWith(hintText: 'Enter password'),
@@ -60,11 +62,11 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.teal,
                   onPressed: () async {
                     setState(() {
-                      loading = true;
+                      _loading = true;
                     });
                     try {
                       final user = await _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
+                          email: _email, password: _password);
                       if (user != null)
                         Navigator.pushNamed(context, HomePage.id);
                     } catch (e) {
@@ -92,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                       ).build(context);
                     }
                     setState(() {
-                      loading = false;
+                      _loading = false;
                     });
                   },
                 )

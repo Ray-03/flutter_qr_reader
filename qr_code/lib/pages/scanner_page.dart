@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:barcode_scan/barcode_scan.dart';
+import 'package:qrcode/pages/result_page.dart';
 import 'package:qrcode/widgets/notification_flush_bar.dart';
 
 class ScanPage extends StatefulWidget {
@@ -13,13 +14,21 @@ class ScanPage extends StatefulWidget {
 }
 
 class _ScanPageState extends State<ScanPage> {
-  String result = 'Hello there >.<';
+  String result = 'Scan the QR code';
 
   Future scanner() async {
     String input;
     try {
       input = await BarcodeScanner.scan();
       setState(() => result = input);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ResultPage(
+            uid: input,
+          ),
+        ),
+      );
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() => result = 'I need your camera permission :(');
@@ -33,13 +42,13 @@ class _ScanPageState extends State<ScanPage> {
     }
   }
 
-  void showCopiedFlushbar(BuildContext context) {
-    NotificationFlushBar(
-      error: false,
-      title: 'Success!',
-      message: 'Copied to your clipboard',
-    ).build(context);
-  }
+//  void showCopiedFlushbar(BuildContext context) {
+//    NotificationFlushBar(
+//      error: false,
+//      title: 'Success!',
+//      message: 'Copied to your clipboard',
+//    ).build(context);
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +68,7 @@ class _ScanPageState extends State<ScanPage> {
                 vertical: 8.0,
               ),
               child: SelectableText(
-                result,
+                'Scan QR Code',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
@@ -67,7 +76,7 @@ class _ScanPageState extends State<ScanPage> {
               ),
             ),
             SizedBox(
-              height: 120,
+              height: 12,
             ),
             Divider(
               color: Colors.white,
@@ -76,28 +85,28 @@ class _ScanPageState extends State<ScanPage> {
               endIndent: 20,
             ),
             SizedBox(
-              height: 40,
+              height: 12,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 50.0,
-                vertical: 30.0,
-              ),
-              child: RaisedButton(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  'Copy to Clipboard',
-                  style: TextStyle(fontSize: 30.0),
-                ),
-                color: Colors.cyan,
-                onPressed: () {
-                  showCopiedFlushbar(context);
-                  Clipboard.setData(
-                    ClipboardData(text: result),
-                  );
-                },
-              ),
-            ),
+//            Padding(
+//              padding: EdgeInsets.symmetric(
+//                horizontal: 50.0,
+//                vertical: 30.0,
+//              ),
+//              child: RaisedButton(
+//                padding: EdgeInsets.all(20),
+//                child: Text(
+//                  'Copy to Clipboard',
+//                  style: TextStyle(fontSize: 30.0),
+//                ),
+//                color: Colors.cyan,
+//                onPressed: () {
+//                  showCopiedFlushbar(context);
+//                  Clipboard.setData(
+//                    ClipboardData(text: result),
+//                  );
+//                },
+//              ),
+//            ),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 50.0,
@@ -110,13 +119,10 @@ class _ScanPageState extends State<ScanPage> {
                 splashColor: Colors.blueGrey,
                 child: Text(
                   'Start scan!',
-                  style: TextStyle(fontSize: 30.0),
+                  style: TextStyle(fontSize: 20.0),
                 ),
               ),
             ),
-            SizedBox(
-              height: 50,
-            )
           ],
         ),
       ),

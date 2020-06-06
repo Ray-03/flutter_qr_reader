@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+const kTextFieldTitle = TextStyle(fontSize: 20);
+
 const kTextFieldDecor = InputDecoration(
-  hintText: 'Enter email',
+  hintText: 'Enter value',
   hintStyle: TextStyle(
     color: Colors.white,
   ),

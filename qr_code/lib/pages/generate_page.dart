@@ -1,40 +1,35 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qrcode/widgets/qr_loader.dart';
 
 class GeneratePage extends StatefulWidget {
   static String id = 'generate';
+
   @override
   _GeneratePageState createState() => _GeneratePageState();
 }
 
 class _GeneratePageState extends State<GeneratePage> {
   String value = 'https://www.qrcode.com/en/history/';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Generate QR Code'),
+          title: Text('Profile Generator'),
           centerTitle: true,
         ),
         body: Column(
           children: [
-            TextField(
-              onChanged: (String newValue) {
-                setState(() {
-                  value = newValue;
-                });
-              },
-              autofocus: true,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                icon: Icon(Icons.title),
-                hintText: 'Put your link here and convert to QR',
-              ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Scan the barcode',
+              style: TextStyle(fontSize: 30),
             ),
             Container(
               padding: EdgeInsets.all(75),
@@ -63,24 +58,7 @@ class _GeneratePageState extends State<GeneratePage> {
                         color: Colors.white,
                       ),
                     ),
-                    QrImage(
-                      data: value,
-                      size: 198,
-                      version: QrVersions.auto,
-                      gapless: true,
-                      constrainErrorBounds: true,
-                      embeddedImageStyle:
-                          QrEmbeddedImageStyle(size: Size(80, 80)),
-                      errorCorrectionLevel: QrErrorCorrectLevel.Q,
-                      errorStateBuilder: (context, err) {
-                        return Container(
-                          child: Text(
-                            'ummm... something went wrong',
-                            textAlign: TextAlign.center,
-                          ),
-                        );
-                      },
-                    ),
+                    QRLoad(),
                     Container(
                       width: 64,
                       height: 64,
