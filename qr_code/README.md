@@ -1,6 +1,5 @@
 # qrcode
-
-A new Flutter application.
+App to generate and read QR Code
 
 ## Demo
 
